@@ -1,42 +1,48 @@
-# Hospital-Appointment-Management-System
-A Python-Based Hospital Management Solution | Object-Oriented Programming | Automated Appointment Scheduling | JSON Data Persistence 
-🏥 Hospital Appointment Management System
+# Hospital Appointment Management System
 
-📌 Project Overview
+A command-line hospital appointment management project converted from the supplied Java classes to Python.
 
-The Hospital Appointment Management System is a Python-based application designed to simplify and organize hospital operations by managing patients, doctors, users, and medical appointments through a simple command-line interface.
+## Features
+- Admin, doctor, and patient login
+- Add doctors and register patients
+- Assign patients to doctors
+- Create, view, and cancel appointments
+- Prevent overlapping appointments for the same doctor
+- Update appointment status
+- Search records and generate basic reports
+- Persistent JSON storage in the `data/` folder
+- Password hashing for newly created accounts
 
-The project applies Object-Oriented Programming (OOP) principles to create a structured, modular, and easy-to-maintain system.
+## Requirements
+- Python 3.9+
+- No third-party packages required
 
-✨ Key Features
+## Run
+```bash
+python main.py
+```
 
-- Role-Based Authentication: Separate login access for Admins, Doctors, and Patients.
-- Admin Management: Add doctors, register patients, assign patients to doctors, create appointments, and generate reports.
-- Doctor Management: View personal profiles, assigned patients, and scheduled appointments, with the ability to update appointment statuses.
-- Patient Management: View personal information, assigned doctors, and appointments, as well as book or cancel appointments.
-- Smart Scheduling: Validate appointment dates and times and prevent conflicting bookings for the same doctor.
-- Data Persistence: Store system information using JSON files to maintain data between sessions.
-- Secure Password Handling: Use password hashing to protect user credentials.
+On first run, a default administrator is created:
 
-🛠️ Technologies Used
+- Username: `admin`
+- Password: `admin123`
 
-- Python
-- Object-Oriented Programming (OOP)
-- JSON File Handling
-- Data Validation
-- Password Hashing
+**Change/remove the default credentials before using this project with real data.**
 
-🚀 Getting Started
+## Project structure
+```text
+hospital_appointment_system/
+├── main.py
+├── hospital_system.py
+├── models.py
+├── storage.py
+├── data/                 # Created automatically; local data is not committed
+├── .gitignore
+└── README.md
+```
 
-1. Download or clone the repository.
-2. Run "main.py".
-3. Log in using the available account credentials.
+## Data and privacy
+The application stores records locally as JSON files in `data/`. Do not commit real patient data, passwords, or personal information to GitHub. The original Java program used plain-text passwords; this Python version hashes passwords for newly created users and upgrades an old plain-text password after a successful login. This is an educational CLI project, not a production-ready medical system.
 
-Default Admin Account:
-
-- Username: "admin"
-- Password: "admin123"
-
-🎯 Project Goal
-
-This project demonstrates practical Python programming, object-oriented design, file handling, authentication, and real-world problem-solving through a hospital appointment management application.
+## Notes about the conversion
+The provided Java files referenced an `Appointment` class, but no `Appointment.java` file was included. The Python `Appointment` model was reconstructed from the fields and methods used by the supplied classes: appointment ID, patient ID, doctor ID, date, time, and status.
